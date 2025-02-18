@@ -41,10 +41,12 @@ func _physics_process(delta: float) -> void:
 		
 		# Animate Left and Right Movement
 		if direction < 0:
-			anim_player_node.play("move_left")
+			if anim_player_node.current_animation != "parry":
+				anim_player_node.play("move_left")
 			sprite_node.flip_h = true
 		else:
-			anim_player_node.play("move_right")
+			if anim_player_node.current_animation != "parry":
+				anim_player_node.play("move_right")
 			sprite_node.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
@@ -67,6 +69,9 @@ func decrease_health(value: int):
 		queue_free() 
 
 func perform_parry():
+	# Play Animation
+	anim_player_node.play("parry")
+	
 	# Jump Upwards
 	velocity.y = jump_speed
 	
