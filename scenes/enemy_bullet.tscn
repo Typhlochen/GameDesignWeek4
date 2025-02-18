@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfnw0r2q2gs3x"]
+
+[ext_resource type="Script" path="res://scripts/enemy_bullet.gd" id="1_la3ev"]
+[ext_resource type="Texture2D" uid="uid://dchtduqpq8vtn" path="res://icon.svg" id="2_4054t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnfl"]
+size = Vector2(123, 134)
+
+[sub_resource type="Animation" id="Animation_o0ivy"]
+resource_name = "normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.869402, 0, 0.136021, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xly34"]
+resource_name = "parryable"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.699021, 0.820829, 1), Color(0.96023, 0.780944, 3.85046e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_epqay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.699021, 0.820829, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ftpf4"]
+_data = {
+"RESET": SubResource("Animation_epqay"),
+"normal": SubResource("Animation_o0ivy"),
+"parryable": SubResource("Animation_xly34")
+}
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_la3ev")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ysnfl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.699021, 0.820829, 1)
+texture = ExtResource("2_4054t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ftpf4")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://v5b2atcbkbjk"]
+[gd_scene load_steps=10 format=3 uid="uid://v5b2atcbkbjk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_cu8ex"]
 [ext_resource type="Texture2D" uid="uid://c7wn36dbu1r3m" path="res://assets/sprites/Player_AnimationSheet.png" id="1_rj18k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yerwd"]
-size = Vector2(19, 30)
+size = Vector2(16, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dn8qw"]
+size = Vector2(40, 49)
 
 [sub_resource type="Animation" id="Animation_mylov"]
 resource_name = "idle"
@@ -86,8 +89,15 @@ _data = {
 script = ExtResource("1_cu8ex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2)
+position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_yerwd")
+
+[node name="EnemyBulletSensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBulletSensor"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dn8qw")
+debug_color = Color(0.996078, 0, 0.196078, 0.282353)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -99,3 +109,6 @@ vframes = 9
 libraries = {
 "": SubResource("AnimationLibrary_067l7")
 }
+
+[connection signal="area_entered" from="EnemyBulletSensor" to="." method="_on_enemy_bullet_sensor_area_entered"]
+[connection signal="area_exited" from="EnemyBulletSensor" to="." method="_on_enemy_bullet_sensor_area_exited"]
