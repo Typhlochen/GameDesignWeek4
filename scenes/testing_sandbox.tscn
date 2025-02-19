@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsmbnc8p12voi"]
 
 [ext_resource type="PackedScene" uid="uid://v5b2atcbkbjk" path="res://scenes/player.tscn" id="1_jdbkf"]
-[ext_resource type="PackedScene" uid="uid://dfnw0r2q2gs3x" path="res://scenes/enemy_bullet.tscn" id="2_2ib03"]
+[ext_resource type="PackedScene" uid="uid://rmt2dqrog07d" path="res://scenes/shooter_enemy.tscn" id="1_nnkjv"]
 [ext_resource type="Texture2D" uid="uid://dchtduqpq8vtn" path="res://icon.svg" id="2_bcsxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3il1"]
@@ -9,20 +9,9 @@ size = Vector2(593, 50)
 
 [node name="TestingSandbox" type="Node2D"]
 
-[node name="EnemyBullet" parent="." instance=ExtResource("2_2ib03")]
-position = Vector2(1312, 559)
-scale = Vector2(0.25, 0.25)
-direction = Vector2(-1, 0)
-
-[node name="EnemyBullet2" parent="." instance=ExtResource("2_2ib03")]
-position = Vector2(1445, 478)
-scale = Vector2(0.25, 0.25)
-direction = Vector2(-1, 0)
-
-[node name="EnemyBullet3" parent="." instance=ExtResource("2_2ib03")]
-position = Vector2(1586, 384)
-scale = Vector2(0.25, 0.25)
-direction = Vector2(-1, 0)
+[node name="ShooterEnemy" parent="." instance=ExtResource("1_nnkjv")]
+position = Vector2(578, 593)
+scale = Vector2(2, 2)
 
 [node name="Player" parent="." node_paths=PackedStringArray("health_ui_label_node") instance=ExtResource("1_jdbkf")]
 position = Vector2(358, 490)

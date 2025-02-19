@@ -43,8 +43,12 @@ func end_parryable_indicator():
 
 # Check for any Physics Bodies entering this area
 func _on_body_entered(body: Node2D) -> void:
+	# Don't Collide with Enemy
+	if body is ShooterEnemy:
+		return
+	
 	if body is Player and not is_parried:
 		# Notify the Player
 		body.collided_with_enemy_bullet(damage)
-		# Destroy Self
-		queue_free()
+	# Destroy Self
+	queue_free()
