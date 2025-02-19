@@ -8,11 +8,15 @@ class_name ShooterEnemy
 @export var fire_rate_sec = 2.0
 @export var health = 100
 
+var activated = false
 var bullet_scn = preload("res://scenes/enemy_bullet.tscn")
 var bullet_direction = Vector2.LEFT
 var fire_rate_timer = 0.0
 
 func _process(delta: float) -> void:
+	
+	if not activated:
+		return
 	
 	# Shoot
 	fire_rate_timer += delta
@@ -29,3 +33,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	move_and_slide()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	activated = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	activated = false

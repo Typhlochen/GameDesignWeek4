@@ -5,8 +5,9 @@ class_name EnemyBullet
 
 @export var speed = 200
 @export var direction := Vector2.ZERO
-@export var damage = 50
+@export var damage = 20
 
+var is_active = true
 var is_parried = false
 
 func _ready() -> void:
@@ -52,3 +53,11 @@ func _on_body_entered(body: Node2D) -> void:
 		body.collided_with_enemy_bullet(damage)
 	# Destroy Self
 	queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	is_active = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	is_active = false

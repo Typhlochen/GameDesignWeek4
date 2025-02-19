@@ -6,6 +6,7 @@ class_name Player
 
 @export var move_speed = 300.0
 @export var jump_speed = -400.0
+@export var parry_jump_speed = -600.0
 
 @export_category("Health and Damage")
 @export var health_ui_label_node: Label = null
@@ -73,7 +74,7 @@ func perform_parry():
 	
 	if can_parry and parryable_enemy_bullet_node != null:
 		# Jump Upwards
-		velocity.y = jump_speed
+		velocity.y = parry_jump_speed
 		
 		# Deflect Bullet
 		parryable_enemy_bullet_node.get_parried()

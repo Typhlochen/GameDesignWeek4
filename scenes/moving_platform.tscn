@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcs5w0apcu745"]
+
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_0pi84"]
+[ext_resource type="Texture2D" uid="uid://srdujxjayq5g" path="res://assets/sprites/Dungeon Tile Set.png" id="2_bjmne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkirf"]
+size = Vector2(48, 14)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_0pi84")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_bjmne")
+region_enabled = true
+region_rect = Rect2(16, 16, 48, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bkirf")
