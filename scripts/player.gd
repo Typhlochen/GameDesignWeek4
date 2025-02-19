@@ -23,7 +23,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if velocity.is_equal_approx(Vector2.ZERO):
-		anim_player_node.play("idle")
+		if anim_player_node.current_animation != "parry":
+			anim_player_node.play("idle")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -52,10 +53,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
 	# Parrying Mechanic
-	if can_parry and parryable_enemy_bullet_node != null:
-		# Wait for Parry Input
-		if Input.is_action_just_pressed("parry"):
-			perform_parry()
+	if Input.is_action_just_pressed("parry"):
+		perform_parry()
 	
 	move_and_slide()
 
@@ -72,11 +71,12 @@ func perform_parry():
 	# Play Animation
 	anim_player_node.play("parry")
 	
-	# Jump Upwards
-	velocity.y = jump_speed
-	
-	# Deflect Bullet
-	parryable_enemy_bullet_node.get_parried()
+	if can_parry and parryable_enemy_bullet_node != null:
+		# Jump Upwards
+		velocity.y = jump_speed
+		
+		# Deflect Bullet
+		parryable_enemy_bullet_node.get_parried()
 
 ## SIGNALS
 
