@@ -12,9 +12,6 @@ class_name Player
 @export var health_ui_label_node: Label = null
 @export var health = 100
 
-# Death Screen
-var death_screen = preload("res://scenes/death_screen.tscn")
-
 # Parrying Information
 var can_parry = false
 var parryable_enemy_bullet_node: EnemyBullet = null
@@ -24,7 +21,15 @@ func _ready() -> void:
 	assert(health_ui_label_node != null, "Player's Health UI node is not set!")
 	health_ui_label_node.text = str(health)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	
+	if anim_player_node.current_animation == "parry":
+		if can_parry and parryable_enemy_bullet_node != null:
+			# Jump Upwards
+			velocity.y = parry_jump_speed
+			
+			# Deflect Bullet
+			parryable_enemy_bullet_node.get_parried()
 	
 	if velocity.is_equal_approx(Vector2.ZERO):
 		if anim_player_node.current_animation != "parry":
@@ -68,12 +73,8 @@ func decrease_health(value: int):
 	health -= value
 	health_ui_label_node.text = str(health)
 	if health <= 0:
-		# Pause the game
-		get_tree().paused = true
-
-		# Show the death screen
-		var death_screen_instance = death_screen.instantiate()
-		get_tree().root.add_child(death_screen_instance)
+		# Death
+		queue_free() 
 
 func perform_parry():
 	# Play Animation
