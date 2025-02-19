@@ -207,8 +207,7 @@ offset_right = 282.0
 offset_bottom = 574.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
-text = "Move using
-A and D"
+text = "<- A   D ->"
 
 [node name="JumpLabel" type="Label" parent="TutorialLabels"]
 offset_left = 766.0
@@ -217,27 +216,25 @@ offset_right = 901.0
 offset_bottom = 488.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
-text = "Jump with W"
+text = "Jump: W"
 
 [node name="ParryLabel" type="Label" parent="TutorialLabels"]
-offset_left = 1574.0
-offset_top = 314.0
-offset_right = 1746.0
-offset_bottom = 379.0
+offset_left = 1571.0
+offset_top = 339.0
+offset_right = 1743.0
+offset_bottom = 404.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
-text = "Press Enter to 
-Parry Bullets"
+text = "Enter to Parry"
 
 [node name="ParryInfoLabel" type="Label" parent="TutorialLabels"]
-offset_left = 1859.0
-offset_top = 216.0
-offset_right = 2031.0
-offset_bottom = 281.0
+offset_left = 1799.0
+offset_top = 266.0
+offset_right = 1971.0
+offset_bottom = 331.0
 theme_override_fonts/font = ExtResource("1_8cetr")
-theme_override_font_sizes/font_size = 20
-text = "Jump Higher
-by Parrying!"
+theme_override_font_sizes/font_size = 38
+text = "->"
 
 [node name="WellDoneLabel" type="Label" parent="TutorialLabels"]
 offset_left = 2419.0
