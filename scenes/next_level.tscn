@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://l0verlwvgs7x"]
+[gd_scene load_steps=16 format=4 uid="uid://l0verlwvgs7x"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_stvkp"]
 [ext_resource type="FontFile" uid="uid://bhgqu765qudb4" path="res://assets/SpaceMono-Regular.ttf" id="2_bkfba"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://rmt2dqrog07d" path="res://scenes/shooter_enemy.tscn" id="4_srydb"]
 [ext_resource type="PackedScene" uid="uid://v5b2atcbkbjk" path="res://scenes/player.tscn" id="6_qurmj"]
 [ext_resource type="PackedScene" uid="uid://dflp8w6im3rk6" path="res://scenes/Spike.tscn" id="6_vt3wv"]
+[ext_resource type="AudioStream" uid="uid://5f58anpctuyk" path="res://assets/sfx/Background music.mp3" id="7_u6f7x"]
+[ext_resource type="AudioStream" uid="uid://cxkbon6jnpma" path="res://assets/sfx/laser shot.mp3" id="8_7ro7y"]
+[ext_resource type="AudioStream" uid="uid://crodmh7peljoy" path="res://assets/sfx/hurt sound.mp3" id="9_6i5xk"]
+[ext_resource type="AudioStream" uid="uid://boiwcbhe71ncp" path="res://assets/sfx/sword slash.mp3" id="10_kshdd"]
+[ext_resource type="AudioStream" uid="uid://16lflitpeem4" path="res://assets/sfx/sword hit.mp3" id="11_grjdt"]
+[ext_resource type="AudioStream" uid="uid://bofsnk53mfnxp" path="res://assets/sfx/Jump sound.mp3" id="12_kjung"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bma57"]
 texture = ExtResource("3_t074i")
@@ -289,5 +295,29 @@ scale = Vector2(0.0491947, -0.0477719)
 position = Vector2(2504, 380)
 rotation = 3.14201
 scale = Vector2(0.0491947, -0.0477719)
+
+[node name="sfx_bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u6f7x")
+volume_db = -5.0
+
+[node name="sfx_laser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7ro7y")
+volume_db = -10.0
+
+[node name="sfx_hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6i5xk")
+volume_db = -8.0
+
+[node name="sfx_slash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_kshdd")
+volume_db = -5.0
+
+[node name="sfx_parry" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_grjdt")
+volume_db = -3.0
+
+[node name="sfx_jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_kjung")
+volume_db = -16.0
 
 [connection signal="body_entered" from="DeadZone" to="." method="_on_dead_zone_body_entered"]

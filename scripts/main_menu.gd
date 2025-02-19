@@ -14,7 +14,7 @@ func _on_level_1_pressed() -> void:
 
 func _on_level_2_pressed() -> void:
 	sfx_click.play()
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/next_level.tscn")
 
 
 func _on_quit_pressed() -> void:
