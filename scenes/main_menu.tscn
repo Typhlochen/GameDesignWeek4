@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0pbpj4vb0yxm"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_a5on0"]
+[ext_resource type="FontFile" uid="uid://bhgqu765qudb4" path="res://assets/SpaceMono-Regular.ttf" id="2_rpcc2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n2i5"]
+bg_color = Color(0.631373, 0.105882, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc5vy"]
+bg_color = Color(0.505882, 0.0784314, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpr58"]
+bg_color = Color(0.295867, 0.295867, 0.295866, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccmna"]
+bg_color = Color(0.631373, 0.105882, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h2ca"]
+bg_color = Color(0.505882, 0.0784314, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id3ga"]
+bg_color = Color(0.631373, 0.105882, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t30d"]
+bg_color = Color(0.505882, 0.0784314, 0.14902, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a5on0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 372.0
+offset_top = 124.0
+offset_right = 868.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_rpcc2")
+theme_override_font_sizes/font_size = 50
+text = "Parry Platformer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 328.0
+offset_right = 822.0
+offset_bottom = 566.0
+theme_override_constants/separation = 50
+
+[node name="Level 1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_rpcc2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_4n2i5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dc5vy")
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_rpcc2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cpr58")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ccmna")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7h2ca")
+disabled = true
+text = "Level 2"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_rpcc2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_id3ga")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8t30d")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

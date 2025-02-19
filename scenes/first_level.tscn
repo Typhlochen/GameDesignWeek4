@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b5kk4xo1yxnpk"]
+[gd_scene load_steps=11 format=4 uid="uid://b5kk4xo1yxnpk"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1mccm"]
 [ext_resource type="FontFile" uid="uid://bhgqu765qudb4" path="res://assets/SpaceMono-Regular.ttf" id="1_8cetr"]
@@ -164,6 +164,9 @@ sources/0 = SubResource("TileSetAtlasSource_bma57")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3a6m"]
 size = Vector2(8112, 664)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ws6x"]
+size = Vector2(20, 31)
+
 [node name="FirstLevel" type="Node2D"]
 position = Vector2(0, -1)
 script = ExtResource("1_1mccm")
@@ -239,6 +242,17 @@ theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
 text = "Well Done!"
 
+[node name="UpLabel" type="Label" parent="TutorialLabels"]
+offset_left = 5082.0
+offset_top = 112.0
+offset_right = 5254.0
+offset_bottom = 211.0
+theme_override_fonts/font = ExtResource("1_8cetr")
+theme_override_font_sizes/font_size = 20
+text = "^
+^
+^"
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="ShooterEnemy" parent="Enemies" instance=ExtResource("4_ik2qi")]
@@ -312,4 +326,11 @@ position = Vector2(-588, 828)
 position = Vector2(4046, 387)
 shape = SubResource("RectangleShape2D_j3a6m")
 
+[node name="EndZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone"]
+position = Vector2(6264, -271.5)
+shape = SubResource("RectangleShape2D_8ws6x")
+
 [connection signal="body_entered" from="DeadZone" to="." method="_on_dead_zone_body_entered"]
+[connection signal="body_entered" from="EndZone" to="." method="_on_end_zone_body_entered"]
