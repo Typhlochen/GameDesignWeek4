@@ -1,6 +1,10 @@
 extends Node2D
+@onready var sfx_bgm: AudioStreamPlayer = $sfx_bgm
 
 @export var current_scene_path = "res://scenes/first_level.tscn"
+
+func _ready():
+	sfx_bgm.play()
 
 func _process(delta: float) -> void:
 	# Reload with R

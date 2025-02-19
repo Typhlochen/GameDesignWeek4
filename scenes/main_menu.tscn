@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0pbpj4vb0yxm"]
+[gd_scene load_steps=12 format=3 uid="uid://b0pbpj4vb0yxm"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_a5on0"]
 [ext_resource type="FontFile" uid="uid://bhgqu765qudb4" path="res://assets/SpaceMono-Regular.ttf" id="2_rpcc2"]
+[ext_resource type="AudioStream" uid="uid://5f58anpctuyk" path="res://assets/sfx/Background music.mp3" id="3_8gyhh"]
+[ext_resource type="AudioStream" uid="uid://dgypv1jgsm1lc" path="res://assets/sfx/Menu click.mp3" id="4_qmyua"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n2i5"]
 bg_color = Color(0.631373, 0.105882, 0.192157, 1)
@@ -98,6 +100,13 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/hover = SubResource("StyleBoxFlat_id3ga")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8t30d")
 text = "Quit"
+
+[node name="sfx_bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8gyhh")
+volume_db = -5.0
+
+[node name="sfx_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qmyua")
 
 [connection signal="pressed" from="VBoxContainer/Level 1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level 2" to="." method="_on_level_2_pressed"]

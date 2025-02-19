@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		sfx_jump.play()
 		velocity.y = jump_speed
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -70,6 +71,7 @@ func _physics_process(delta: float) -> void:
 ## PLAYER FUNCTIONS
 
 func decrease_health(value: int):
+	sfx_hurt.play()
 	health -= value
 	health_ui_label_node.text = str(health)
 	if health <= 0:
@@ -77,14 +79,17 @@ func decrease_health(value: int):
 		queue_free() 
 
 func perform_parry():
+	sfx_slash.play()
 	# Play Animation
 	anim_player_node.play("parry")
 	
 	if can_parry and parryable_enemy_bullet_node != null:
 		# Jump Upwards
+		sfx_jump.play()
 		velocity.y = parry_jump_speed
 		
 		# Deflect Bullet
+		sfx_parry.play()
 		parryable_enemy_bullet_node.get_parried()
 
 ## SIGNALS
