@@ -1,6 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var sfx_hurt: AudioStreamPlayer = $"../sfx_hurt"
+@onready var sfx_slash: AudioStreamPlayer = $"../sfx_slash"
+@onready var sfx_parry: AudioStreamPlayer = $"../sfx_parry"
+@onready var sfx_jump: AudioStreamPlayer = $"../sfx_jump"
+
 @onready var sprite_node = $Sprite2D
 @onready var anim_player_node = $AnimationPlayer
 
@@ -11,6 +16,9 @@ class_name Player
 @export_category("Health and Damage")
 @export var health_ui_label_node: Label = null
 @export var health = 100
+
+# Death Screen
+var death_screen = preload("res://scenes/death_screen.tscn")
 
 # Parrying Information
 var can_parry = false
@@ -75,8 +83,12 @@ func decrease_health(value: int):
 	health -= value
 	health_ui_label_node.text = str(health)
 	if health <= 0:
-		# Death
-		queue_free() 
+		# Pause the game
+		get_tree().paused = true
+
+		# Show the death screen
+		var death_screen_instance = death_screen.instantiate()
+		get_tree().root.add_child(death_screen_instance)
 
 func perform_parry():
 	sfx_slash.play()
