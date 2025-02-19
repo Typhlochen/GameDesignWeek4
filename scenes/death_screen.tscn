@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3e40ubib40n3"]
+[gd_scene load_steps=9 format=3 uid="uid://d3e40ubib40n3"]
 
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_oqcpe"]
 [ext_resource type="FontFile" uid="uid://bhgqu765qudb4" path="res://assets/SpaceMono-Regular.ttf" id="2_0kghx"]
+[ext_resource type="AudioStream" uid="uid://dgypv1jgsm1lc" path="res://assets/sfx/Menu click.mp3" id="3_0knxw"]
+[ext_resource type="AudioStream" uid="uid://b8n4u1leburqa" path="res://assets/sfx/Game over.mp3" id="4_wof63"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcnn7"]
 bg_color = Color(0.631373, 0.105882, 0.192157, 1)
@@ -74,6 +76,12 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/hover = SubResource("StyleBoxFlat_fdtyj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_x773c")
 text = "Main Menu"
+
+[node name="sfx_click" type="AudioStreamPlayer" parent="DeathScreen"]
+stream = ExtResource("3_0knxw")
+
+[node name="sfx_GameOver" type="AudioStreamPlayer" parent="DeathScreen"]
+stream = ExtResource("4_wof63")
 
 [connection signal="pressed" from="DeathScreen/VBoxContainer/Retry" to="DeathScreen" method="_on_retry_pressed"]
 [connection signal="pressed" from="DeathScreen/VBoxContainer/Main Menu" to="DeathScreen" method="_on_main_menu_pressed"]

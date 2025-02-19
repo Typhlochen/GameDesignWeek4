@@ -12,6 +12,11 @@ class_name Player
 @export var health_ui_label_node: Label = null
 @export var health = 100
 
+@onready var sfx_jump: AudioStreamPlayer = $"../sfx_jump"
+@onready var sfx_parry: AudioStreamPlayer = $"../sfx_parry"
+@onready var sfx_slash: AudioStreamPlayer = $"../sfx_slash"
+@onready var sfx_hurt: AudioStreamPlayer = $"../sfx_hurt"
+
 # Death Screen
 var death_screen = preload("res://scenes/death_screen.tscn")
 
@@ -37,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		sfx_jump.play()
 		velocity.y = jump_speed
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -65,6 +71,7 @@ func _physics_process(delta: float) -> void:
 ## PLAYER FUNCTIONS
 
 func decrease_health(value: int):
+	sfx_hurt.play()
 	health -= value
 	health_ui_label_node.text = str(health)
 	if health <= 0:
@@ -76,14 +83,17 @@ func decrease_health(value: int):
 		get_tree().root.add_child(death_screen_instance)
 
 func perform_parry():
+	sfx_slash.play()
 	# Play Animation
 	anim_player_node.play("parry")
 	
 	if can_parry and parryable_enemy_bullet_node != null:
 		# Jump Upwards
+		sfx_jump.play()
 		velocity.y = parry_jump_speed
 		
 		# Deflect Bullet
+		sfx_parry.play()
 		parryable_enemy_bullet_node.get_parried()
 
 ## SIGNALS

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjgvf0q3ax7l4"]
+[gd_scene load_steps=7 format=3 uid="uid://cjgvf0q3ax7l4"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_tebtj"]
 [ext_resource type="FontFile" uid="uid://bhgqu765qudb4" path="res://assets/SpaceMono-Regular.ttf" id="1_w410v"]
+[ext_resource type="AudioStream" uid="uid://dgypv1jgsm1lc" path="res://assets/sfx/Menu click.mp3" id="3_qoild"]
+[ext_resource type="AudioStream" uid="uid://cc575r2fa53x4" path="res://assets/sfx/level complete.mp3" id="4_qhx0y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfso7"]
 bg_color = Color(0.631373, 0.105882, 0.192157, 1)
@@ -26,6 +28,7 @@ offset_bottom = 720.0
 color = Color(0.0941176, 0.0784314, 0.145098, 0.901961)
 
 [node name="Label" type="Label" parent="WinScreen"]
+layout_mode = 0
 offset_left = 408.0
 offset_top = 144.0
 offset_right = 872.0
@@ -67,6 +70,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hfso7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jwnyy")
 text = "Main Menu
 "
+
+[node name="sfx_click" type="AudioStreamPlayer" parent="WinScreen"]
+stream = ExtResource("3_qoild")
+
+[node name="sfx_win" type="AudioStreamPlayer" parent="WinScreen"]
+stream = ExtResource("4_qhx0y")
+volume_db = -2.0
 
 [connection signal="pressed" from="WinScreen/VBoxContainer/Retry" to="WinScreen" method="_on_retry_pressed"]
 [connection signal="pressed" from="WinScreen/VBoxContainer/Main Menu" to="WinScreen" method="_on_main_menu_pressed"]

@@ -1,9 +1,13 @@
 extends Node2D
+@onready var sfx_bgm: AudioStreamPlayer = $sfx_bgm
 
 @export var current_scene_path = "res://scenes/first_level.tscn"
 # Death and Win Screens
 var death_screen = preload("res://scenes/death_screen.tscn")
 var win_screen = preload("res://scenes/win_screen.tscn")
+
+func _ready():
+	sfx_bgm.play()
 
 func _process(delta: float) -> void:
 	# Reload with R

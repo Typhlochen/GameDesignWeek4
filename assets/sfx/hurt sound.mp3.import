@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crodmh7peljoy"
+path="res://.godot/imported/hurt sound.mp3-2c0914065bed270e102eb5a9e00c70bd.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/hurt sound.mp3"
+dest_files=["res://.godot/imported/hurt sound.mp3-2c0914065bed270e102eb5a9e00c70bd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
