@@ -21,7 +21,15 @@ func _ready() -> void:
 	assert(health_ui_label_node != null, "Player's Health UI node is not set!")
 	health_ui_label_node.text = str(health)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	
+	if anim_player_node.current_animation == "parry":
+		if can_parry and parryable_enemy_bullet_node != null:
+			# Jump Upwards
+			velocity.y = parry_jump_speed
+			
+			# Deflect Bullet
+			parryable_enemy_bullet_node.get_parried()
 	
 	if velocity.is_equal_approx(Vector2.ZERO):
 		if anim_player_node.current_animation != "parry":

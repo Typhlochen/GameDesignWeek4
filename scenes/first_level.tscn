@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b5kk4xo1yxnpk"]
+[gd_scene load_steps=10 format=4 uid="uid://dybudft1p4b24"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1mccm"]
 [ext_resource type="FontFile" uid="uid://bhgqu765qudb4" path="res://assets/SpaceMono-Regular.ttf" id="1_8cetr"]
@@ -176,6 +176,7 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 56
 text = "100"
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMaps" type="Node2D" parent="."]
 
