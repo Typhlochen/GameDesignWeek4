@@ -19,5 +19,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		# Notify the Player
 		body.collided_with_enemy_bullet(damage)
-	# Destroy Self
-	queue_free()
+	

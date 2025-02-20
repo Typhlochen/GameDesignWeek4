@@ -247,54 +247,36 @@ shape = SubResource("RectangleShape2D_j3a6m")
 [node name="Spike" type="Node2D" parent="."]
 
 [node name="Spike" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(526, 355)
-rotation = 3.14201
-scale = Vector2(0.0799951, 0.0400025)
+position = Vector2(503, 355)
+scale = Vector2(0.12, -0.04)
 
 [node name="Spike2" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(631, 355)
-rotation = 3.14201
-scale = Vector2(0.0799951, 0.0400025)
+position = Vector2(660, 355)
+scale = Vector2(0.12, -0.04)
 
 [node name="Spike3" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(736, 355)
-rotation = 3.14201
-scale = Vector2(0.0799951, 0.0400025)
+position = Vector2(816, 355)
+scale = Vector2(0.12, -0.04)
 
 [node name="Spike4" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(841, 355)
-rotation = 3.14201
-scale = Vector2(0.0799951, 0.0400025)
+position = Vector2(970, 356)
+scale = Vector2(0.12, -0.04)
 
 [node name="Spike5" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(946, 355)
-rotation = 3.14201
-scale = Vector2(0.0799951, 0.0400025)
+position = Vector2(1102, 356)
+scale = Vector2(0.12, -0.04)
 
 [node name="Spike6" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(1051, 355)
-rotation = 3.14201
-scale = Vector2(0.0799951, 0.0400025)
+position = Vector2(1847, 380)
+scale = Vector2(0.05, 0.05)
 
 [node name="Spike7" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(1155, 355)
-rotation = 3.14201
-scale = Vector2(0.0799951, 0.0400025)
+position = Vector2(2168, 380)
+scale = Vector2(0.05, 0.05)
 
 [node name="Spike8" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(1864, 380)
-rotation = 3.14201
-scale = Vector2(0.0491947, -0.0477719)
-
-[node name="Spike9" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(2184, 380)
-rotation = 3.14201
-scale = Vector2(0.0491947, -0.0477719)
-
-[node name="Spike10" parent="Spike" instance=ExtResource("6_vt3wv")]
-position = Vector2(2504, 380)
-rotation = 3.14201
-scale = Vector2(0.0491947, -0.0477719)
+position = Vector2(2488, 380)
+scale = Vector2(0.05, 0.05)
 
 [node name="sfx_bgm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_u6f7x")

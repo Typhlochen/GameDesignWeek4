@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 	# Shoot
 	fire_rate_timer += delta
 	if fire_rate_timer > fire_rate_sec:
-		sfx_laser.play()
 		var new_bullet_node = bullet_scn.instantiate()
 		new_bullet_node.shoot(bullet_direction)
 		bullet_spawn_left_node.add_child(new_bullet_node)

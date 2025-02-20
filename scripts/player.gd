@@ -115,7 +115,7 @@ func _on_enemy_bullet_sensor_area_entered(area: Area2D) -> void:
 
 func _on_enemy_bullet_sensor_area_exited(area: Area2D) -> void:
 	if area is EnemyBullet:
-		parryable_enemy_bullet_node.end_parryable_indicator()
+		#parryable_enemy_bullet_node.end_parryable_indicator()
 		parryable_enemy_bullet_node = null
 		can_parry = false
 
