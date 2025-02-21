@@ -7,7 +7,7 @@ var death_screen = preload("res://scenes/death_screen.tscn")
 var win_screen = preload("res://scenes/win_screen.tscn")
 
 func _ready():
-	pass
+	sfx_bgm.play()
 
 func _process(delta: float) -> void:
 	# Reload with R

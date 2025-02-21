@@ -66,7 +66,7 @@ theme_override_fonts/font = ExtResource("2_0kghx")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/hover = SubResource("StyleBoxFlat_pcnn7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cq0ud")
-text = "Retry"
+text = "Retry [->]"
 
 [node name="Main Menu" type="Button" parent="DeathScreen/VBoxContainer"]
 layout_mode = 2

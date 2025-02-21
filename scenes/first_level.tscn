@@ -207,25 +207,26 @@ offset_right = 282.0
 offset_bottom = 574.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
-text = "<- A   D ->"
+text = "<- [A]   [D] ->"
+metadata/_edit_use_anchors_ = true
 
 [node name="JumpLabel" type="Label" parent="TutorialLabels"]
-offset_left = 766.0
-offset_top = 437.0
-offset_right = 901.0
-offset_bottom = 488.0
+offset_left = 745.0
+offset_top = 436.0
+offset_right = 953.0
+offset_bottom = 487.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
-text = "Jump: W"
+text = "Jump: [W] [Space]"
 
 [node name="ParryLabel" type="Label" parent="TutorialLabels"]
-offset_left = 1571.0
+offset_left = 1545.0
 offset_top = 339.0
-offset_right = 1743.0
+offset_right = 1766.0
 offset_bottom = 404.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
-text = "Enter to Parry"
+text = "Enter [->] to Parry"
 
 [node name="ParryInfoLabel" type="Label" parent="TutorialLabels"]
 offset_left = 1799.0
@@ -246,10 +247,10 @@ theme_override_font_sizes/font_size = 20
 text = "Well Done!"
 
 [node name="UpLabel" type="Label" parent="TutorialLabels"]
-offset_left = 5082.0
-offset_top = 112.0
-offset_right = 5254.0
-offset_bottom = 211.0
+offset_left = 5158.0
+offset_top = 113.0
+offset_right = 5330.0
+offset_bottom = 212.0
 theme_override_fonts/font = ExtResource("1_8cetr")
 theme_override_font_sizes/font_size = 20
 text = "^
@@ -261,7 +262,6 @@ text = "^
 [node name="ShooterEnemy" parent="Enemies" instance=ExtResource("4_ik2qi")]
 position = Vector2(1936, 456)
 scale = Vector2(2, 2)
-fire_rate_sec = 3.0
 
 [node name="ShooterEnemy2" parent="Enemies" instance=ExtResource("4_ik2qi")]
 position = Vector2(3098, 287)
@@ -270,7 +270,6 @@ scale = Vector2(2, 2)
 [node name="ShooterEnemy3" parent="Enemies" instance=ExtResource("4_ik2qi")]
 position = Vector2(2840, 468)
 scale = Vector2(2, 2)
-fire_rate_sec = 3.0
 
 [node name="ShooterEnemy4" parent="Enemies" instance=ExtResource("4_ik2qi")]
 position = Vector2(3862, 178)
@@ -286,10 +285,10 @@ scale = Vector2(2, 2)
 position = Vector2(1515, -255)
 
 [node name="Start" type="Node2D" parent="MovingPlatforms/Container"]
-position = Vector2(2215, 591)
+position = Vector2(2236, 591)
 
 [node name="End" type="Node2D" parent="MovingPlatforms/Container"]
-position = Vector2(2556, 591)
+position = Vector2(2581, 591)
 
 [node name="MovingPlatform" parent="MovingPlatforms/Container" node_paths=PackedStringArray("start_node2d", "end_node2d") instance=ExtResource("5_kxxum")]
 position = Vector2(2372, 591)
@@ -345,7 +344,7 @@ volume_db = -10.0
 
 [node name="sfx_hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_26uni")
-volume_db = -8.0
+volume_db = -5.0
 
 [node name="sfx_slash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_hp7kf")

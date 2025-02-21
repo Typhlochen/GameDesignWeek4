@@ -5,6 +5,10 @@ extends Control
 func _ready():
 	sfx_game_over.play()
 
+func _process(_delta: float) -> void:	
+	if Input.is_action_just_pressed("parry"):
+		_on_retry_pressed()
+
 func _on_retry_pressed() -> void:
 	sfx_click.play()
 	get_tree().paused = false

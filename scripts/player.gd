@@ -30,15 +30,6 @@ func _ready() -> void:
 	health_ui_label_node.text = str(health)
 
 func _process(_delta: float) -> void:
-	
-	if anim_player_node.current_animation == "parry":
-		if can_parry and parryable_enemy_bullet_node != null:
-			# Jump Upwards
-			velocity.y = parry_jump_speed
-			
-			# Deflect Bullet
-			parryable_enemy_bullet_node.get_parried()
-	
 	if velocity.is_equal_approx(Vector2.ZERO):
 		if anim_player_node.current_animation != "parry":
 			anim_player_node.play("idle")
@@ -114,8 +105,8 @@ func _on_enemy_bullet_sensor_area_entered(area: Area2D) -> void:
 		can_parry = true
 
 func _on_enemy_bullet_sensor_area_exited(area: Area2D) -> void:
-	if area is EnemyBullet:
-		#parryable_enemy_bullet_node.end_parryable_indicator()
+	if area is EnemyBullet and parryable_enemy_bullet_node == area:
+		parryable_enemy_bullet_node.end_parryable_indicator()
 		parryable_enemy_bullet_node = null
 		can_parry = false
 

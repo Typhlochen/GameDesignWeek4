@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yerwd"]
 size = Vector2(16, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dn8qw"]
-size = Vector2(56, 41)
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4gxq"]
+radius = 46.35
 
 [sub_resource type="Animation" id="Animation_mu6ke"]
 length = 0.001
@@ -113,8 +113,8 @@ shape = SubResource("RectangleShape2D_yerwd")
 [node name="EnemyBulletSensor" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBulletSensor"]
-position = Vector2(-1, 1.5)
-shape = SubResource("RectangleShape2D_dn8qw")
+position = Vector2(0, 4.21875)
+shape = SubResource("CircleShape2D_t4gxq")
 debug_color = Color(0.996078, 0, 0.196078, 0.282353)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
